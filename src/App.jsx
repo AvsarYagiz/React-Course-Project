@@ -22,15 +22,15 @@ function Header() {
   );
 }
 
-function CoreConcept(props) {
+function CoreConcept({concept}) {
   return (
     <li>
-      <img src={props.image} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <img src={concept.image} alt={concept.title} />
+      <h3>{concept.title}</h3>
+      <p>{concept.description}</p>
     </li>
   );
-}
+} 
 
 function App() {
   return (
@@ -40,11 +40,9 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            {CORE_CONCEPTS.map((concept) => (
+            {CORE_CONCEPTS.map((concept,index) => (
               <CoreConcept
-                image={concept.image}
-                title={concept.title}
-                description={concept.description}
+                concept={CORE_CONCEPTS[index]}
               />
             ))}
           </ul>
